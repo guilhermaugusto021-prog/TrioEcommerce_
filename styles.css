@@ -60,7 +60,7 @@ body {
     background: linear-gradient(
         rgba(0,0,0,0.0),
         rgba(0,0,0,0.0)
-    ), url("Trio.jpeg") center/cover no-repeat;
+    ), url("../img/Trio.jpeg") center/cover no-repeat;
     color: #fff;
     padding: 180px 0;
     text-align: left; /* Alterado de justify para left */
@@ -336,4 +336,5 @@ body {
 .card-produto:hover {
     cursor: pointer;
 }
+
 
