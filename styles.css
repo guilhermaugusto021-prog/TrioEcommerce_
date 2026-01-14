@@ -10,6 +10,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #222;
     line-height: 1.6;
+    background-color: #ebebeb; /* cinza claro marketplace */
 }
 
 .container {
@@ -34,18 +35,22 @@ body {
     padding: 15px 0;
 }
 
-/* Ajuste do container da logo */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-/* Comando para aumentar o tamanho da imagem */
 .logo-img {
-    height: 90px; /* Altere este valor para aumentar ou diminuir */
-    width: auto;  /* Mantém a proporção da imagem */
+    height: 90px; 
+    width: auto;  
     display: block;
+}
+
+/* Ajuste para o menu não amontoar no celular */
+@media (max-width: 768px) {
+    .nav-content { flex-direction: column; gap: 10px; }
+    .logo-img { height: 60px; }
 }
 
 .nav-menu a {
@@ -64,66 +69,36 @@ body {
 
 /* HERO */
 .hero {
-    background: linear-gradient(
-        rgba(0,0,0,0.0),
-        rgba(0,0,0,0.0)
-    ), 
-    url("https://i.ibb.co/hFqk2p4Y/Trio.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), 
+                url("https://i.ibb.co/hFqk2p4Y/Trio.jpg") center/cover no-repeat;
     color: #fff;
     padding: 180px 0;
-    text-align: left; /* Alterado de justify para left */
+    text-align: left;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-/* BOTÕES */
-.btn {
-    display: inline-block;
-    padding: 12px 26px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
+/* BOTÃO PRIMARY (AJUSTADO) */
 .btn-primary {
     background: #ff6600 !important;
     color: #fff !important;
     display: inline-block !important;
-    
-    /* Aumenta o tamanho */
-    padding: 20px 50px !important; 
+    padding: 20px 60px !important; 
     font-size: 22px !important;
     border-radius: 8px !important;
-
-    /* Move o botão para baixo */
-    position: relative;
-    top: 135px; /* Aumente este valor para descer mais ainda */
+    text-decoration: none;
+    font-weight: 600;
+    
+    /* REMOVIDO o position relative e top que quebrava o layout */
+    /* USADO margin-top para criar o espaço que você deseja com segurança */
+    margin-top: 355px; 
 }
 
-.btn-secondary {
-    background: #333;
-    color: #fff;
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
-
-/* GRID DE PRODUTOS */
-
+/* GRID DE PRODUTOS (UNIFICADO E RESPONSIVO) */
 .cards {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
+    display: grid;
+    /* No PC: 4 colunas. No Celular: Ajusta sozinho */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    margin-top: 20px;
 }
 
 /* CARD PRODUTO */
@@ -143,8 +118,6 @@ body {
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-
-/* IMAGEM PADRONIZADA */
 .card-img {
     height: 180px;
     display: flex;
@@ -159,7 +132,6 @@ body {
     object-fit: contain;
 }
 
-/* INFORMAÇÕES */
 .card-info {
     display: flex;
     flex-direction: column;
@@ -175,7 +147,6 @@ body {
     min-height: 42px;
 }
 
-/* PREÇO */
 .preco {
     font-size: 1.5rem;
     font-weight: 700;
@@ -183,14 +154,12 @@ body {
     margin-bottom: 4px;
 }
 
-/* PARCELAMENTO */
 .parcelamento {
     font-size: 0.85rem;
     color: #555;
     margin-bottom: 6px;
 }
 
-/* CUPOM */
 .cupom {
     display: inline-block;
     font-size: 0.75rem;
@@ -202,18 +171,12 @@ body {
     margin-bottom: 6px;
 }
 
-/* FRETE */
 .frete {
     font-size: 0.8rem;
     color: #007600;
     margin-bottom: 8px;
 }
 
-.frete span {
-    color: #666;
-}
-
-/* BADGE FULL */
 .badge-full {
     background: #00a650;
     color: #fff;
@@ -225,44 +188,34 @@ body {
     margin-top: auto;
 }
 
-/* RESPONSIVO */
-@media (max-width: 1024px) {
-    .cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* SOBRE / CONTATO */
-.sobre, .contato {
+/* SEÇÃO DIFERENCIAIS */
+.diferenciais {
+    background-color: #ebebeb;
     padding: 60px 0;
+}
+
+.diferenciais-grid {
+    display: grid;
+    /* Ajuste responsivo para os diferenciais */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     text-align: center;
 }
 
-.contato form {
-    max-width: 500px;
-    margin: auto;
-    display: grid;
-    gap: 15px;
+.diferencial-item { padding: 20px; }
+.diferencial-item .icon { font-size: 40px; margin-bottom: 15px; }
+.diferencial-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #222;
+    text-transform: uppercase;
 }
-
-.contato input,
-.contato textarea {
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.diferencial-item p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    font-style: italic;
 }
 
 /* FOOTER */
@@ -274,74 +227,43 @@ body {
     margin-top: 40px;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-body {
-    background-color: #ebebeb; /* cinza claro marketplace */
-}
-
-/* SEÇÃO DIFERENCIAIS */
-.diferenciais {
-    background-color: #ebebeb; /* Mesma cor do seu body */
-    padding: 60px 0;
-    /* Removi a borda para não marcar a divisão e ficar fluido */
-}
-
-.diferenciais-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    text-align: center;
-}
-
-.diferencial-item {
-    padding: 20px;
-}
-
-.diferencial-item .icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.diferencial-item h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #222;
-    text-transform: uppercase; /* Deixa em caixa alta igual ao seu exemplo */
-}
-
-.diferencial-item p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.4;
-    font-style: italic; /* Opcional: dá um toque de design como no print */
-}
-
-/* Ajustes Responsivos */
-@media (max-width: 768px) {
-    .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 480px) {
-    .diferenciais-grid { grid-template-columns: 1fr; }
-}
-
-/* Remove a formatação azul de link e mantém o layout do card */
+/* Link invisível no card */
 .link-total-card {
     text-decoration: none;
-    color: inherit; /* Mantém as cores originais que você já definiu */
+    color: inherit;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-/* Garante que o hover continue funcionando dentro do link */
-.card-produto:hover {
-    cursor: pointer;
+.sobre {
+    padding: 80px 0; /* Aumentei um pouco o respiro vertical */
+    text-align: center; /* Centraliza o título e o texto */
+    background-color: #ebebeb; /* Mantém o padrão do site */
 }
 
+.sobre h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.sobre p {
+    max-width: 800px; /* Limita a largura para o texto não ficar gigante em monitores largos */
+    margin: 0 auto; /* Centraliza o bloco de texto na página */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444; /* Um tom levemente mais suave para leitura */
+}
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    .sobre {
+        padding: 40px 0;
+    }
+    
+    .sobre p {
+        width: 90%; /* Garante margem nas laterais no celular */
+        font-size: 1rem;
+    }
+}
