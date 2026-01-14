@@ -58,12 +58,12 @@ body {
 /* HERO */
 .hero {
     background: linear-gradient(
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0.4)
-    ), url("img/hero.jpg") center/cover no-repeat;
+        rgba(0,0,0,0.0),
+        rgba(0,0,0,0.0)
+    ), url("img/Trio.jpeg") center/cover no-repeat;
     color: #fff;
-    padding: 120px 0;
-    text-align: center;
+    padding: 180px 0;
+    text-align: left; /* Alterado de justify para left */
 }
 
 .hero h1 {
@@ -87,8 +87,18 @@ body {
 }
 
 .btn-primary {
-    background: #ff6600;
-    color: #fff;
+    background: #ff6600 !important;
+    color: #fff !important;
+    display: inline-block !important;
+    
+    /* Aumenta o tamanho */
+    padding: 20px 50px !important; 
+    font-size: 22px !important;
+    border-radius: 8px !important;
+
+    /* Move o botão para baixo */
+    position: relative;
+    top: 135px; /* Aumente este valor para descer mais ainda */
 }
 
 .btn-secondary {
@@ -260,4 +270,69 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
+}
+
+body {
+    background-color: #ebebeb; /* cinza claro marketplace */
+}
+
+/* SEÇÃO DIFERENCIAIS */
+.diferenciais {
+    background-color: #ebebeb; /* Mesma cor do seu body */
+    padding: 60px 0;
+    /* Removi a borda para não marcar a divisão e ficar fluido */
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.diferencial-item {
+    padding: 20px;
+}
+
+.diferencial-item .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.diferencial-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #222;
+    text-transform: uppercase; /* Deixa em caixa alta igual ao seu exemplo */
+}
+
+.diferencial-item p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    font-style: italic; /* Opcional: dá um toque de design como no print */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .diferenciais-grid { grid-template-columns: 1fr; }
+}
+
+/* Remove a formatação azul de link e mantém o layout do card */
+.link-total-card {
+    text-decoration: none;
+    color: inherit; /* Mantém as cores originais que você já definiu */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Garante que o hover continue funcionando dentro do link */
+.card-produto:hover {
+    cursor: pointer;
 }
