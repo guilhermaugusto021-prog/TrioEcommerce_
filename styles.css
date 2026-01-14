@@ -34,11 +34,18 @@ body {
     padding: 15px 0;
 }
 
+/* Ajuste do container da logo */
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #222;
+    display: flex;
+    align-items: center;
     text-decoration: none;
+}
+
+/* Comando para aumentar o tamanho da imagem */
+.logo-img {
+    height: 90px; /* Altere este valor para aumentar ou diminuir */
+    width: auto;  /* Mantém a proporção da imagem */
+    display: block;
 }
 
 .nav-menu a {
@@ -337,3 +344,4 @@ body {
 .card-produto:hover {
     cursor: pointer;
 }
+
