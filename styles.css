@@ -69,27 +69,37 @@ body {
 
 /* HERO */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), 
-                url("https://i.ibb.co/hFqk2p4Y/Trio.jpg") center/cover no-repeat;
+    background: url("https://i.ibb.co/hFqk2p4Y/Trio.jpg") center center / cover no-repeat;
     color: #fff;
-    padding: 180px 0;
-    text-align: left;
+    width: 100%;
+    min-height: 260px; /* Altura ideal para aparecer bem no PC */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empurra o conteúdo para a base da imagem */
+    align-items: center;        /* Centraliza o botão horizontalmente */
+    padding-bottom: 50px;       /* Distância do botão para o fim da imagem */
+    position: relative;
 }
-
-/* BOTÃO PRIMARY (AJUSTADO) */
+/* BOTÃO - Centralizado e sem 'quebrar' o fundo */
 .btn-primary {
     background: #ff6600 !important;
     color: #fff !important;
-    display: inline-block !important;
-    padding: 20px 60px !important; 
+    
+    /* Centralização Real */
+    display: block !important;    /* Ocupa a linha toda para permitir o 'auto' */
+    width: fit-content;           /* Mas mantém o tamanho apenas do texto */
+    margin: 40px auto 0 auto !important; /* Centraliza horizontalmente e dá espaço em cima */
+
+    padding: 20px 50px !important; 
     font-size: 22px !important;
     border-radius: 8px !important;
     text-decoration: none;
     font-weight: 600;
-    
-    /* REMOVIDO o position relative e top que quebrava o layout */
-    /* USADO margin-top para criar o espaço que você deseja com segurança */
-    margin-top: 355px; 
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
 }
 
 /* GRID DE PRODUTOS (UNIFICADO E RESPONSIVO) */
