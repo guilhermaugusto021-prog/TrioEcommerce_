@@ -75,17 +75,22 @@ body {
 
 /* HERO */
 .hero {
-    background: url("https://i.ibb.co/hFqk2p4Y/Trio.jpg") center center / cover no-repeat;
-    color: #fff;
+    background-image: url("https://i.ibb.co/Rk9wSs9K/Trio.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* 🔥 NÃO CORTA A IMAGEM */
+    
     width: 100%;
-    min-height: 260px; /* Altura ideal para aparecer bem no PC */
+    min-height: 400px; /* ajuste conforme sua imagem */
+    
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Empurra o conteúdo para a base da imagem */
-    align-items: center;        /* Centraliza o botão horizontalmente */
-    padding-bottom: 50px;       /* Distância do botão para o fim da imagem */
-    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-bottom: 50px;
 }
+
 /* BOTÃO - Centralizado e sem 'quebrar' o fundo */
 .btn-primary {
     background: #ff6600 !important;
@@ -281,5 +286,19 @@ body {
     .sobre p {
         width: 90%; /* Garante margem nas laterais no celular */
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 160px;      /* diminui a altura do banner */
+        padding-bottom: 15px;   /* remove o “respiro” excessivo */
+    }
+
+    .btn-primary {
+        margin-top: 15px !important; /* aproxima o botão do banner */
+        padding: 14px 32px !important;
+        font-size: 18px !important;
     }
 }
