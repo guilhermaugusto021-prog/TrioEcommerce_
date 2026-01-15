@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria - Vôlei</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<section class="categoria">
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / Categoria
+    </div>
+
+    <h1>TRIO Ecommerce</h1>
+    <p class="subtitulo">Tipo de produtos</p>
+
+    <div class="filtros">
+        <button class="filtro-btn ativo" data-categoria="beleza">Beleza</button>
+        <button class="filtro-btn" data-categoria="camisas">Cozinha</button>
+        <button class="filtro-btn" data-categoria="joelheiras">Construção</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="header-produtos">
+        <h2>Produtos</h2>
+    </div>
+
+    <div class="produtos">
+
+        <div class="produto" data-categoria="beleza">
+            <div class="card-produto">
+                <a href="https://www.mercadolivre.com.br/escova-secadora-cadence-t-pront-4-em-1-esc710/p/MLB22616604?pdp_filters=item_id%3AMLB4415729687#origin%3Dshare%26sid%3Dshare%26wid%3DMLB4415729687" class="link-total-card">
+                <div class="card-img">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_740506-MLA99588742918_122025-F.webp" alt="Escova Secadora Cadence">
+                </div>
+
+                <div class="card-info">
+                    <h3 class="titulo-produto">
+                        Escova Secadora Cadence Tô Pront@ 4 Em 1 - Esc710
+                    </h3>
+
+                    <p class="preco">R$ 137,74</p>
+
+                    <p class="parcelamento">
+                        em <strong>12x 13,61</strong>
+                    </p>
+
+                    <span class="cupom">3% OFF</span>
+
+                    <p class="frete">
+                        Frete grátis <span>em compras acima de R$79,00</span>
+                    </p>
+                    <span class="badge-full">FLEX</span>
+                </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="produto" data-categoria="bolas">
+            <div class="card-produto">
+                <a href="https://www.mercadolivre.com.br/escova-secadora-keratin-mondial-1300w-es-11-bi/p/MLB22647527?pdp_filters=item_id%3AMLB4367225429#origin%3Dshare%26sid%3Dshare%26wid%3DMLB4367225429" class="link-total-card">
+                <div class="card-img">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_856835-MLA100007840721_122025-F.webp" alt="Produto 2">
+                </div>
+
+                <div class="card-info">
+                    <h3 class="titulo-produto">
+                        Escova Secadora Keratin, Mondial, 1300W - ES-11-BI
+                    </h3>
+
+                    <p class="preco">R$ 142,90</p>
+
+                    <p class="frete">
+                        Frete grátis <span>em compras acima de R$79,00</span>
+                    </p>
+                    <span class="badge-full">FLEX</span>
+                </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="produto hidden" data-categoria="camisas">Camisa Time 1</div>
+        <div class="produto hidden" data-categoria="camisas">Camisa Treino 2</div>
+
+        <div class="produto hidden" data-categoria="joelheiras">Joelheira Pro</div>
+        
+    </div>
+
+</section>
+
+<script>
+    const botoes = document.querySelectorAll('.filtro-btn');
+    const produtos = document.querySelectorAll('.produto');
+
+    botoes.forEach(botao => {
+        botao.addEventListener('click', () => {
+            // Remove ativo de todos
+            botoes.forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const categoria = botao.dataset.categoria;
+
+            produtos.forEach(produto => {
+                if (produto.dataset.categoria === categoria) {
+                    produto.classList.remove('hidden');
+                } else {
+                    produto.classList.add('hidden');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
